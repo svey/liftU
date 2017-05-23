@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "liftU",
+    "icon": "./liftu.png",
+    "version": "1.0.0",
+    "slug": "unlisted",
+    "sdkVersion": "16.0.0",
+    "ios": {
+      "bundleIdentifier": "com.marcussv.liftu",
+    },
+    "android": {
+      "package": "com.marcussv.liftu",
+    }
+  }
+}
