@@ -1,6 +1,9 @@
+import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import Login from './screens/Login';
 import NoteCreate from './screens/NoteCreate';
+import Exercise from './screens/Exercise';
 
 const SignedOut = StackNavigator({
   SignUp: {
@@ -13,28 +16,40 @@ const SignedOut = StackNavigator({
 
 export const SignedIn = TabNavigator({
   Home: {
-    screen: NoteCreate,
+    screen: Exercise,
     navigationOptions: {
-      tabBarLabel: 'Home',
+      tabBarLabel: 'Routine',
       tabBarPosition: 'bottom',
-      // tabBarIcon: ({ tintColor }) => (
-      //   <FontAwesome name='home' size={30} color={tintColor} />
-      // )
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name='fitness-center' size={20} color={tintColor} />
+      )
     }
   },
   Profile: {
     screen: NoteCreate,
     navigationOptions: {
-      tabBarLabel: 'Profile',
+      tabBarLabel: 'Progress',
       tabBarPosition: 'bottom',
-      // tabBarIcon: ({ tintColor }) => (
-      //   <FontAwesome name='user' size={30} color={tintColor} />
-      // )
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name='person' size={20} color={tintColor} />
+      )
+    }
+  },
+  Programming: {
+    screen: NoteCreate,
+    navigationOptions: {
+      tabBarLabel: 'About',
+      tabBarPosition: 'bottom',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name='info-outline' size={20} color={tintColor} />
+      )
     }
   }
 }, {
     tabBarPosition: 'bottom',
     tabBarOptions: {
+      //showLabel: false,
+      showIcon: true,
       style: {
         backgroundColor: 'black'
       }

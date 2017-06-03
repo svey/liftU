@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DatePickerAndroid } from 'react-native';
+import { DatePickerAndroid, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Card, CardSection, Input, Button } from './common';
 import { noteUpdate } from '../actions';
@@ -33,9 +33,12 @@ class NoteCreate extends Component {
           />
         </CardSection>
         <CardSection>
-          <Input
-            label="Text"
+          <TextInput
             placeholder="Your note here..."
+            style={{ flex: 1 }}
+            textAlignVertical="top"
+            multiline
+            numberOfLines={10}
             value={this.props.text}
             onChangeText={value => this.props.noteUpdate({ prop: 'text', value })}
           />
