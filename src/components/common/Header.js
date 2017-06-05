@@ -1,8 +1,6 @@
-// Import libraries for making a component
 import React from 'react';
 import { Text, View } from 'react-native';
 
-// Make a component
 const Header = ({ headerText }) => {
   const { textStyle, viewStyle } = styles;
 
@@ -19,7 +17,6 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     height: 60,
-    paddingTop: 25,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -31,5 +28,4 @@ const styles = {
   }
 };
 
-// Make the component available to other parts of the app
 export { Header };

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { ListView } from 'react-native';
+import { ListView, Modal, View, Image } from 'react-native';
 import { connect } from 'react-redux';
-import { exercisesFetch } from '../actions';
+import { exercisesFetch, exerciseDeselect } from '../actions';
 import ListItem from './ExerciseListItem';
+import { Card, CardSection, Button } from './common';
 
 class ExerciseList extends Component {
   componentWillMount() {
@@ -23,25 +24,58 @@ class ExerciseList extends Component {
     this.dataSource = ds.cloneWithRows(routine);
   }
 
+
+  closeModal() {
+    this.props.exerciseDeselect();
+  }
+
   renderRow(exercise) {
     return <ListItem exercise={exercise} />;
   }
 
   render() {
     return (
-      <ListView
-        enableEmptySections
-        dataSource={this.dataSource}
-        renderRow={this.renderRow}
-      />
+      <View>
+        <Modal
+          animationType={'slide'}
+          transparent
+          visible={this.props.modalVisible}
+          onRequestClose={() => {}}
+        >
+        <Card>
+          <CardSection>
+            <Image
+              style={{ width: 350, height: 350 }}
+              resizeMode={'contain'}
+              source={{ uri: this.props.exercise }}
+            />
+          </CardSection>
+          <CardSection>
+            <Button onPress={this.closeModal.bind(this)}>Close</Button>
+          </CardSection>
+          </Card>
+        </Modal>
+        <ListView
+          enableEmptySections
+          dataSource={this.dataSource}
+          renderRow={this.renderRow}
+        />
+      </View>
     );
   }
 }
 
+// const styles = {
+//   imageStyle: {
+//     height: 350,
+//     flex: 1,
+//     width: null
+//   }
+// };
+
 const mapStateToProps = ({ exercises }) => {
-  const { routine } = exercises;
-  console.log(routine);
-  return { routine };
+  const { routine, exercise, modalVisible } = exercises;
+  return { routine, exercise, modalVisible };
 };
 
-export default connect(mapStateToProps, { exercisesFetch })(ExerciseList);
+export default connect(mapStateToProps, { exercisesFetch, exerciseDeselect })(ExerciseList);

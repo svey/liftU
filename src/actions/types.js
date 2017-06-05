@@ -5,3 +5,5 @@ export const LOGIN_USER_FAIL = 'login_user_fail';
 export const LOGIN_USER = 'login_user';
 export const NOTE_UPDATE = 'note_update';
 export const EXERCISES_FETCH_SUCCESS = 'exercises_fetch_success';
+export const EXERCISE_SELECT = 'exercise_select';
+export const EXERCISE_DESELECT = 'exercise_deselect';

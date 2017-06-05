@@ -4,6 +4,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import Login from './screens/Login';
 import NoteCreate from './screens/NoteCreate';
 import Exercise from './screens/Exercise';
+import About from './screens/About';
 
 const SignedOut = StackNavigator({
   SignUp: {
@@ -35,8 +36,8 @@ export const SignedIn = TabNavigator({
       )
     }
   },
-  Programming: {
-    screen: NoteCreate,
+  About: {
+    screen: About,
     navigationOptions: {
       tabBarLabel: 'About',
       tabBarPosition: 'bottom',
