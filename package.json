@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-native-scripts": "0.0.29",
+    "eslint-config-rallycoding": "^3.2.0",
     "jest-expo": "^0.4.0",
+    "react-native-scripts": "0.0.29",
     "react-test-renderer": "16.0.0-alpha.6"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
@@ -20,7 +21,13 @@
   },
   "dependencies": {
     "expo": "^16.0.0",
+    "firebase": "^4.1.0",
     "react": "16.0.0-alpha.6",
-    "react-native": "^0.43.4"
+    "react-native": "^0.43.4",
+    "react-native-vector-icons": "^4.2.0",
+    "react-navigation": "^1.0.0-beta.11",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
   }
 }
