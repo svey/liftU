@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { Card, CardSection } from './common';
+import Swipeout from 'react-native-swipeout';
+import { CardSection } from './common';
 import {
   exerciseSelect
 } from '../actions';
 
 class ExerciseListItem extends Component {
 
-  onListItemPress(uri) {
-    this.props.exerciseSelect(uri);
+  onListItemPress(exercise) {
+    this.props.exerciseSelect(exercise);
   }
 
   render() {
@@ -18,7 +19,8 @@ class ExerciseListItem extends Component {
           //<Image style={thumbnailStyle} source={require('../liftu.png')} />
 
     return (
-      <TouchableOpacity onPress={this.onListItemPress.bind(this, image)}>
+      <Swipeout left={swipeoutBtns}>
+      <TouchableOpacity onPress={this.onListItemPress.bind(this, this.props.exercise)}>
         <CardSection>
           <View style={imageContainerStyle}>
             <Image style={thumbnailStyle} resizeMode='stretch' source={{ uri: image }} />
@@ -29,9 +31,16 @@ class ExerciseListItem extends Component {
           </View>
         </CardSection>
       </TouchableOpacity>
+      </Swipeout>
     );
   }
 }
+
+const swipeoutBtns = [
+  {
+    text: 'Button'
+  }
+]
 
 const styles = {
   headerStyle: {

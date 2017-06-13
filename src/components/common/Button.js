@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-const Button = ({ onPress, children }) => {
+const Button = ({ onPress, text, children }) => {
   const { buttonStyle, textStyle } = styles;
 
   return (
@@ -9,28 +9,28 @@ const Button = ({ onPress, children }) => {
       <Text style={textStyle}>
         {children}
       </Text>
+      <Text style={textStyle}>
+        {text}
+      </Text>
     </TouchableOpacity>
   );
 };
 
 const styles = {
   textStyle: {
-    alignSelf: 'center',
-    color: '#000',
-    fontSize: 16,
-    fontWeight: '600',
-    paddingTop: 10,
-    paddingBottom: 10
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#f8f8f8',
+    fontSize: 13,
+    padding: 5,
   },
   buttonStyle: {
     flex: 1,
-    alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#000',
-    marginLeft: 5,
-    marginRight: 5
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#000',
+    padding: 7
   }
 };
 

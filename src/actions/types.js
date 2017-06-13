@@ -7,3 +7,7 @@ export const NOTE_UPDATE = 'note_update';
 export const EXERCISES_FETCH_SUCCESS = 'exercises_fetch_success';
 export const EXERCISE_SELECT = 'exercise_select';
 export const EXERCISE_DESELECT = 'exercise_deselect';
+export const TIMER_UPDATE = 'timer_update';
+export const TIMER_START = 'timer_start';
+export const TIMER_TICK = 'timer_tick';
+export const TIMER_STOP = 'timer_stop';

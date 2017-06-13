@@ -14,13 +14,12 @@ export const exercisesFetch = () => {
   };
 };
 
-export const exerciseSelect = (uri) => {
+export const exerciseSelect = (exercise) => {
   return {
     type: EXERCISE_SELECT,
-    payload: uri
+    payload: exercise
   };
 };
-
 
 export const exerciseDeselect = () => {
   return {
