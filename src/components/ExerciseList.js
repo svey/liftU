@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { ListView, Modal, View, Image } from 'react-native';
 import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { exercisesFetch, exerciseDeselect } from '../actions';
 import ListItem from './ExerciseListItem';
-import { Card, CardSection, Button } from './common';
+import { Button } from './common';
+import Timer from '../../old_components/Timer';
 
 class ExerciseList extends Component {
   componentWillMount() {
@@ -34,6 +36,8 @@ class ExerciseList extends Component {
   }
 
   render() {
+    const { modalStyle, modalButtonStyle, imageStyle } = styles;
+
     return (
       <View>
         <Modal
@@ -42,18 +46,25 @@ class ExerciseList extends Component {
           visible={this.props.modalVisible}
           onRequestClose={() => {}}
         >
-        <Card>
-          <CardSection>
+        <View style={modalStyle}>
             <Image
-              style={{ width: 350, height: 350 }}
+              style={imageStyle}
               resizeMode={'contain'}
-              source={{ uri: this.props.exercise }}
+              source={{ uri: this.props.exercise.image }}
             />
-          </CardSection>
-          <CardSection>
-            <Button onPress={this.closeModal.bind(this)}>Close</Button>
-          </CardSection>
-          </Card>
+            <Timer />
+          <View style={modalButtonStyle}>
+            <Button onPress={this.closeModal.bind(this)} text="COMPLETED" >
+              <Icon name='check' size={20} />
+            </Button>
+            <Button onPress={this.closeModal.bind(this)} text="SKIPPED">
+              <Icon name='block' size={20} />
+            </Button>
+            <Button onPress={this.closeModal.bind(this)} text="CLOSE">
+              <Icon name='close' size={20} />
+            </Button>
+          </View>
+        </View>
         </Modal>
         <ListView
           enableEmptySections
@@ -65,13 +76,25 @@ class ExerciseList extends Component {
   }
 }
 
-// const styles = {
-//   imageStyle: {
-//     height: 350,
-//     flex: 1,
-//     width: null
-//   }
-// };
+const styles = {
+  modalStyle: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: 'rgba(255,255,255,0.8)'
+  },
+  modalButtonStyle: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'center'
+  },
+  imageStyle: {
+    width: 350,
+    height: 350
+  }
+};
 
 const mapStateToProps = ({ exercises }) => {
   const { routine, exercise, modalVisible } = exercises;
