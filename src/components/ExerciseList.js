@@ -38,57 +38,44 @@ class ExerciseList extends Component {
   render() {
     const { modalButtonStyle, imageStyle, headerStyle, titleStyle, timerStyle } = styles;
     const { exercise, programming, image } = this.props.exercise;
-
-          
-          // <View style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.8)' }}>
-          //   <Image style={imageStyle} resizeMode={'contain'} source={{ uri: image }} />
-          // </View>
-          // <CardSection>
-          //   <Text>This will contain an exercise description of key points about performing each exercise</Text>
-          // </CardSection>
-          // <View style={modalButtonStyle}>
-          //   <Button onPress={this.closeModal.bind(this)} text="COMPLETED" >
-          //     <Icon name='check' size={20} />
-          //   </Button>
-          //   <Button onPress={this.closeModal.bind(this)} text="SKIPPED">
-          //     <Icon name='block' size={20} />
-          //   </Button>
-          //   <Button onPress={this.closeModal.bind(this)} text="CLOSE">
-          //     <Icon name='close' size={20} />
-          //   </Button>
-          // </View>
+    
     return (
       <View>
         <Modal
           animationType={'slide'}
-          transparent
+          //transparent
+          supportedOrientations={['portrait']}
           visible={this.props.modalVisible}
           onRequestClose={() => {}}
         >
-          <View style={{flexDirection: 'column', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.8)'}}>
-            <View style={{ flex: 1 }}>
-              <Card>
-                <CardSection>
-                  <View style={headerStyle}>
-                    <Text style={titleStyle}>{exercise}</Text>
-                    <Text>{programming}</Text>  
-                  </View>
-                  <View style={timerStyle}>
-                    <Timer />  
-                  </View>
-                </CardSection>
-              </Card>
-            </View>
-
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Card>
+            <CardSection>
+              <View style={headerStyle}>
+                <Text style={titleStyle}>{exercise}</Text>
+                <Text>{programming}</Text>  
+              </View>
+              <View style={timerStyle}>
+                <Timer />  
+              </View>
+            </CardSection>
+            <CardSection style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Image style={imageStyle} resizeMode={'contain'} source={{ uri: image }} />
+            </CardSection>
+            <View style={{ ...headerStyle, paddingBottom: 5, paddingLeft: 5 }}>
+              <Text style={titleStyle}>Description</Text>
+              <Text>This will contain an exercise description of key points about performing each exercise. Coming soon!</Text>
             </View>
-
-            <View style={{ flex: 1 }}>
-            </View>
-
-            <View style={{ flex: 1 }}>
-            </View>
+          </Card>
+          <View style={modalButtonStyle}>
+            <Button onPress={this.closeModal.bind(this)} text="COMPLETED" >
+              <Icon name='check' size={20} />
+            </Button>
+            <Button onPress={this.closeModal.bind(this)} text="SKIPPED">
+              <Icon name='block' size={20} />
+            </Button>
+            <Button onPress={this.closeModal.bind(this)} text="CLOSE">
+              <Icon name='close' size={20} />
+            </Button>
           </View>
         </Modal>
         <ListView
@@ -103,11 +90,7 @@ class ExerciseList extends Component {
 
 const styles = {
   // modalStyle: {
-  //   flex: 1,
-  //   flexDirection: 'column',
-  //   alignItems: 'center',
-  //   justifyContent: 'space-between',
-  //   backgroundColor: 'rgba(255,255,255,0.8)'
+
   // },
   modalButtonStyle: {
     flex: 1,
