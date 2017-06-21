@@ -8,28 +8,6 @@ class Timer extends Component {
     this.props.timerStop();
   }
 
-  // updateTimer(time) {
-  //   this.props.timerUpdate(time);
-  // }
-
-  // startTimer(duration = 0) {
-  //   let timer = duration;
-  //   const interval = setInterval(() => {
-  //     let minutes = parseInt(timer / 60, 10);
-  //     let seconds = parseInt(timer % 60, 10);
-
-  //     minutes = minutes < 10 ? `0${minutes}` : minutes;
-  //     seconds = seconds < 10 ? `0${seconds}` : seconds;
-
-  //     this.updateTimer(`${minutes}:${seconds}`);
-      
-  //     if (--timer < 0) {
-  //         this.updateTimer('Tap to start');
-  //         clearInterval(interval);
-  //     }
-  //   }, 1000);
-  // }
-
   render() {
     const { headerStyle, titleStyle } = styles;
 

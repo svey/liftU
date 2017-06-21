@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { ListView, Modal, View, Image } from 'react-native';
+import { ListView, Modal, View, Image, Text } from 'react-native';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { exercisesFetch, exerciseDeselect } from '../actions';
 import ListItem from './ExerciseListItem';
-import { Button } from './common';
+import { Button, Card, CardSection } from './common';
 import Timer from '../../old_components/Timer';
 
 class ExerciseList extends Component {
@@ -36,8 +36,27 @@ class ExerciseList extends Component {
   }
 
   render() {
-    const { modalStyle, modalButtonStyle, imageStyle } = styles;
+    const { modalButtonStyle, imageStyle, headerStyle, titleStyle, timerStyle } = styles;
+    const { exercise, programming, image } = this.props.exercise;
 
+          
+          // <View style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.8)' }}>
+          //   <Image style={imageStyle} resizeMode={'contain'} source={{ uri: image }} />
+          // </View>
+          // <CardSection>
+          //   <Text>This will contain an exercise description of key points about performing each exercise</Text>
+          // </CardSection>
+          // <View style={modalButtonStyle}>
+          //   <Button onPress={this.closeModal.bind(this)} text="COMPLETED" >
+          //     <Icon name='check' size={20} />
+          //   </Button>
+          //   <Button onPress={this.closeModal.bind(this)} text="SKIPPED">
+          //     <Icon name='block' size={20} />
+          //   </Button>
+          //   <Button onPress={this.closeModal.bind(this)} text="CLOSE">
+          //     <Icon name='close' size={20} />
+          //   </Button>
+          // </View>
     return (
       <View>
         <Modal
@@ -46,25 +65,31 @@ class ExerciseList extends Component {
           visible={this.props.modalVisible}
           onRequestClose={() => {}}
         >
-        <View style={modalStyle}>
-            <Image
-              style={imageStyle}
-              resizeMode={'contain'}
-              source={{ uri: this.props.exercise.image }}
-            />
-            <Timer />
-          <View style={modalButtonStyle}>
-            <Button onPress={this.closeModal.bind(this)} text="COMPLETED" >
-              <Icon name='check' size={20} />
-            </Button>
-            <Button onPress={this.closeModal.bind(this)} text="SKIPPED">
-              <Icon name='block' size={20} />
-            </Button>
-            <Button onPress={this.closeModal.bind(this)} text="CLOSE">
-              <Icon name='close' size={20} />
-            </Button>
+          <View style={{flexDirection: 'column', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.8)'}}>
+            <View style={{ flex: 1 }}>
+              <Card>
+                <CardSection>
+                  <View style={headerStyle}>
+                    <Text style={titleStyle}>{exercise}</Text>
+                    <Text>{programming}</Text>  
+                  </View>
+                  <View style={timerStyle}>
+                    <Timer />  
+                  </View>
+                </CardSection>
+              </Card>
+            </View>
+
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <Image style={imageStyle} resizeMode={'contain'} source={{ uri: image }} />
+            </View>
+
+            <View style={{ flex: 1 }}>
+            </View>
+
+            <View style={{ flex: 1 }}>
+            </View>
           </View>
-        </View>
         </Modal>
         <ListView
           enableEmptySections
@@ -77,13 +102,13 @@ class ExerciseList extends Component {
 }
 
 const styles = {
-  modalStyle: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: 'rgba(255,255,255,0.8)'
-  },
+  // modalStyle: {
+  //   flex: 1,
+  //   flexDirection: 'column',
+  //   alignItems: 'center',
+  //   justifyContent: 'space-between',
+  //   backgroundColor: 'rgba(255,255,255,0.8)'
+  // },
   modalButtonStyle: {
     flex: 1,
     flexDirection: 'row',
@@ -91,8 +116,20 @@ const styles = {
     justifyContent: 'center'
   },
   imageStyle: {
-    width: 350,
-    height: 350
+    width: 300,
+    height: 300,
+    margin: 10
+  },
+  headerStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  titleStyle: {
+    fontSize: 18
+  },
+  timerStyle: {
+    flex: 1,
+    alignItems: 'flex-end'
   }
 };
 
