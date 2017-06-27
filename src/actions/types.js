@@ -11,3 +11,5 @@ export const TIMER_UPDATE = 'timer_update';
 export const TIMER_START = 'timer_start';
 export const TIMER_TICK = 'timer_tick';
 export const TIMER_STOP = 'timer_stop';
+export const EXERCISE_REMOVE = 'exercise_remove';
+export const EXERCISE_COMPLETE = 'exercise_complete';

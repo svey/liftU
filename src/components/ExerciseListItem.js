@@ -9,18 +9,17 @@ import {
 
 class ExerciseListItem extends Component {
 
-  onListItemPress(exercise) {
-    this.props.exerciseSelect(exercise);
+  onListItemPress(exercise, rowID) {
+    this.props.exerciseSelect(exercise, rowID);
   }
 
   render() {
     const { imageContainerStyle, titleStyle, thumbnailStyle, headerStyle } = styles;
     const { exercise, programming, image } = this.props.exercise;
-          //<Image style={thumbnailStyle} source={require('../liftu.png')} />
-
+    
     return (
       <Swipeout left={swipeoutBtns}>
-      <TouchableOpacity onPress={this.onListItemPress.bind(this, this.props.exercise)}>
+      <TouchableOpacity onPress={this.onListItemPress.bind(this, this.props.exercise, this.props.rowID)}>
         <CardSection>
           <View style={imageContainerStyle}>
             <Image style={thumbnailStyle} resizeMode='stretch' source={{ uri: image }} />
