@@ -39,7 +39,7 @@ const swipeoutBtns = [
   {
     text: 'Button'
   }
-]
+];
 
 const styles = {
   headerStyle: {

@@ -4,7 +4,7 @@ import { View, TouchableHighlight, Text } from 'react-native';
 class VerticalCharts extends Component {
   render () {
     //const { workout } = this.props;//new Date();
-    const workout = { completed: 15, dateObj: new Date() }
+    const workout = { completed: 15, dateObj: new Date() };
     const value = workout.completed;
     const month = workout.dateObj.getMonth() + 1; //months from 1-12
     const day = workout.dateObj.getDate();
