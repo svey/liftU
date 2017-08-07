@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import NoteCreate from '../components/NoteCreate';
 import ColumnCharts from '../components/ColumnCharts';
+import VerticalCharts from '../components/VerticalCharts';
 import { Card, CardSection, Header } from '../components/common';
 
 export default () => (
@@ -15,7 +16,7 @@ export default () => (
     <Card>
       <Header headerText={'WORKOUT HISTORY'} />
       <CardSection>
-        <ColumnCharts />
+        <VerticalCharts />
       </CardSection>
     </Card>
   </View>
