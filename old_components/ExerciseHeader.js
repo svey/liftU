@@ -39,15 +39,12 @@ class ExerciseHeader extends Component {
     return (
       <Card>
         <CardSection>
-          <View style={imageContainerStyle}>
-            <Image style={thumbnailStyle} source={require('../liftu.png')} />
-          </View>
           <View style={headerStyle}>
             <Text style={titleStyle}>{exercise}</Text>
             <Text>{programming}</Text>  
           </View>
           <View style={timerStyle}>
-            <Timer time={this.state.timer} onPress={this.startTimer.bind(this, time)} />  
+            <Timer />  
           </View>
         </CardSection>
       </Card>
