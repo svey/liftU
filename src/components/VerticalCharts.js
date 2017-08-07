@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
 
 class VerticalCharts extends Component {
-  render () {
+  render() {
     //const { workout } = this.props;//new Date();
     const workout = { completed: 15, dateObj: new Date() };
     const value = workout.completed;
     const month = workout.dateObj.getMonth() + 1; //months from 1-12
     const day = workout.dateObj.getDate();
-    const date = `${month}.${day}`;
+    const date = `${month}-${day}`;
     const unitHeight = 10;
 
-    const entity = value; //Faded part of the bar
+    const entity = value; //The bar
     const empty = 16 - value; //Faded part of the bar
     //16 should be set to the final amount of exercises in the routine
 

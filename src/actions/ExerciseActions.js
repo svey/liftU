@@ -32,15 +32,19 @@ export const exerciseDeselect = () => {
 export const exerciseRemove = (array, rowID, complete) => {
   array.splice(rowID, 1);
   if (complete) {
-    console.log('complete');
     return {
       type: EXERCISE_COMPLETE,
       payload: array
     };
   }
-  console.log('skip');
   return {
     type: EXERCISE_REMOVE,
     payload: array
   };
+};
+
+export const exerciseLog = ({ completed }) => {
+  const { currentUser } = firebase.auth();
+  firebase.database().ref(`/users/${currentUser.uid}/workouts`)
+    .push({ completed });
 };

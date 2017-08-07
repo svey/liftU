@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Card, CardSection, Input, Button, Spinner } from './common';
@@ -28,8 +29,8 @@ class LoginForm extends Component {
     }
 
     return (
-      <Button onPress={this.onButtonPress.bind(this)}>
-        Login
+      <Button onPress={this.onButtonPress.bind(this)} text="LOGIN">
+        <Icon name='account-circle' size={20} />
       </Button>
     );
   }

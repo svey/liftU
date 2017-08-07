@@ -1,12 +1,15 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const Header = ({ headerText }) => {
+const Header = ({ headerText, children }) => {
   const { textStyle, viewStyle } = styles;
 
   return (
     <View style={viewStyle}>
       <Text style={textStyle}>{headerText}</Text>
+      <View style={{ padding: 1 }}>
+        {children}
+      </View>
     </View>
   );
 };
@@ -14,8 +17,9 @@ const Header = ({ headerText }) => {
 const styles = {
   viewStyle: {
     backgroundColor: '#F8F8F8',
-    justifyContent: 'center',
-    //alignItems: 'start',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingLeft: 15,
     height: 60,
     shadowColor: '#000',
