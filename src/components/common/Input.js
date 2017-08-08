@@ -38,7 +38,7 @@ const styles = {
     flex: 1
   },
   containerStyle: {
-    //height: ,
+    height: 55,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center'

@@ -4,6 +4,7 @@ import {
   EXERCISE_DESELECT,
   EXERCISE_REMOVE,
   EXERCISE_COMPLETE,
+  EXERCISE_LOG_FETCH_SUCCESS
 } from '../actions/types';
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
   rowID: null,
   modalVisible: false,
   completed: 0,
-  skipped: 0
+  skipped: 0,
+  log: []
 };
 
 export default (state = initialState, action) => {
@@ -45,6 +47,11 @@ export default (state = initialState, action) => {
         rowID: null,
         routine: action.payload,
         completed: state.completed + 1
+      };
+    case EXERCISE_LOG_FETCH_SUCCESS:
+      return {
+        ...state,
+        log: action.payload
       };
     default:
       return state;

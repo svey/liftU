@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ColumnCharts from '../components/ColumnCharts';
-import VerticalCharts from '../components/VerticalCharts';
+import WorkoutHistory from '../components/WorkoutHistory';
 import { Card, CardSection, Header, Button } from '../components/common';
 import { exerciseLog } from '../actions';
 
@@ -29,7 +29,7 @@ class WorkoutInfo extends Component {
         <Card>
           <Header headerText={'WORKOUT HISTORY'} />
           <CardSection>
-            <VerticalCharts />
+            <WorkoutHistory log={{ completed: 10, date: '8-8' }} />
           </CardSection>
         </Card>
       </View>
@@ -38,9 +38,7 @@ class WorkoutInfo extends Component {
 }
 
 const mapStateToProps = ({ exercises }) => {
-  console.log('here')
   const { completed, skipped } = exercises;
-  console.log(completed);
   return { completed, skipped };
 };
 
