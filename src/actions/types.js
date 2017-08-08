@@ -13,3 +13,4 @@ export const TIMER_TICK = 'timer_tick';
 export const TIMER_STOP = 'timer_stop';
 export const EXERCISE_REMOVE = 'exercise_remove';
 export const EXERCISE_COMPLETE = 'exercise_complete';
+export const EXERCISE_LOG_FETCH_SUCCESS = 'exercise_log_fetch_success';
