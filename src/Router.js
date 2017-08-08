@@ -72,7 +72,7 @@ class Router extends Component {
         },
         {
           //headerMode: 'none',
-          mode: 'modal',
+          mode: 'card',
           initialRouteName: 'SignedOut'
         }
       );
@@ -84,7 +84,6 @@ class Router extends Component {
 
 const mapStateToProps = ({ auth }) => {
   const { user } = auth;
-  console.log('user ', user);
   return { user };
 };
 
